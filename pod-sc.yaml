@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-sc
+spec:
+  containers:
+  - name: busybox
+    image: harbor-01a.corp.local/library/busybox:latest
+    args: [ "sleep infinity" ]
+    volumeMounts:
+    - mountPath: /my-vol
+      name: test-volume
+  volumes:
+  - name: test-volume
+    persistentVolumeClaim:
+      claimName: pvc-sc
