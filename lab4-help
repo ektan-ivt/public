@@ -84,7 +84,7 @@ echo -e "Generate script in [ $1 ] - /home/student/kubeadm-config.yaml"
 }
 
 __TASK_LIST="task1 task2 task3"
-__TASK_HELP="Usage: - lab-help <task1 | task2 | task3>"
+__TASK_HELP="Usage: - lab4-help <task1 | task2 | task3>"
 if [[ $# -eq 0 ]] ; then
       echo "$__TASK_HELP"
       exit 1
