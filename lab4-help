@@ -90,10 +90,10 @@ if [[ $# -eq 0 ]] ; then
       exit 1
 elif [[ "$__TASK_LIST" =~ (^|[[:space:]])"$1"($|[[:space:]]) ]]; then
       if [[ $1 == "task1" ]]; then
-        ___generate_file k8s-cp
+        ___generate_setup_script k8s-cp
       elif [[ $1 == "task2" ]]; then
-        ___generate_file k8s-worker-1
-        ___generate_file k8s-worker-2
+        ___generate_setup_script k8s-worker-1
+        ___generate_setup_script k8s-worker-2
       elif [[ $1 == "task3" ]]; then
         ___generate_init_config k8s-cp
       else
