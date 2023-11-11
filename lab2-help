@@ -1,0 +1,34 @@
+#!/bin/bash
+
+___lab_task2(){
+  cat << EOF > $1
+FROM alpine:latest
+WORKDIR / 
+
+RUN apk add --no-cache py3-pip
+RUN pip3 install flask
+
+COPY helloworld.py  /
+
+EXPOSE 8080
+CMD ["python3", "helloworld.py"]
+
+EOF
+  echo -e "Generate $1"
+}
+__TASK_LIST="task2"
+__TASK_HELP="Usage: - lab2-help <task2>"
+if [[ $# -eq 0 ]] ; then
+      echo "$__TASK_HELP"
+      exit 1
+elif [[ "$__TASK_LIST" =~ (^|[[:space:]])"$1"($|[[:space:]]) ]]; then
+      if [[ $1 == "task2" ]]; then
+        ___lab_task2 /home/student/Dockerfile
+      else
+        echo "$__TASK_HELP"
+        exit 1
+      fi 
+else
+    echo "$__TASK_HELP"
+    exit 1
+fi
